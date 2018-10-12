@@ -1,0 +1,64 @@
+Connected.
+SQL> create table login(email varchar2(45)primary key not null,password varchar2
+(45));
+
+Table created.
+
+SQL> create table customer_master(c_id varchar2(50) primary key not null,custome
+r_name varchar2(100),dob date,email varchar2(45),foreign key(email) references l
+ogin(email),password varchar2(45),ssn-type varchar2(45),ssn-no varchar2(50));
+create table customer_master(c_id varchar2(50) primary key not null,customer_nam
+e varchar2(100),dob date,email varchar2(45),foreign key(email) references login(
+email),password varchar2(45),ssn-type varchar2(45),ssn-no varchar2(50))
+
+
+                                *
+ERROR at line 1:
+ORA-00902: invalid datatype
+
+
+SQL> create table customer_master(c_id varchar2(50) primary key not null,custome
+r_name varchar2(100),dob date,email varchar2(45),foreign key(email) references l
+ogin(email),password varchar2(45),ssn_type varchar2(45),ssn_no varchar2(50));
+
+Table created.
+
+SQL> create table airline_master(a_id varchar2(50) primary key not null,a_name v
+archar2(100),dop date);
+
+Table created.
+
+SQL> create table location_master(location_id number primary key not null,locati
+on_name varchar2(100));
+
+Table created.
+
+SQL> create flight_master(f_no varchar2(50) primary key not null,a_id varchar2(5
+0), foreign key(a_id) references airline_master(a_id),tot_seats number,src numbe
+r,foreign key (src) references location_master(location_id),dest number,foreign
+key (dest) references location_master(location_id),depart_time varchar2(50),fare
+ number,ava_seats number,depart_date date);
+create flight_master(f_no varchar2(50) primary key not null,a_id varchar2(50), f
+oreign key(a_id) references airline_master(a_id),tot_seats number,src number,for
+eign key (src) references location_master(location_id),dest number,foreign key (
+dest) references location_master(location_id),depart_time varchar2(50),fare numb
+er,ava_seats number,depart_date date)
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command
+
+
+SQL> create table flight_master(f_no varchar2(50) primary key not null,a_id varc
+har2(50), foreign key(a_id) references airline_master(a_id),tot_seats number,src
+ number,foreign key (src) references location_master(location_id),dest number,fo
+reign key (dest) references location_master(location_id),depart_time varchar2(50
+),fare number,ava_seats number,depart_date date);
+
+Table created.
+
+SQL> create table booking_info(booking_id varchar2(50) primary key not null,book
+ing_date date,f_no varchar2(50),foreign key (f_no) references flight_master(f_no
+),c_id varchar2(50),foreign key (c_id) references customer_master(c_id),price nu
+mber,seats_book number,depart_date date);
+
+Table created.
