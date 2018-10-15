@@ -1,0 +1,35 @@
+SQL> create table login(email varchar(45)primary key not null,password varchar
+(45));
+
+Table created.
+
+SQL> create table customer_master(c_id varchar(50) primary key not null,
+customer_name varchar(100),dob date,email varchar(45),foreign key(email) references 
+login(email),password varchar(45),ssn_type varchar(45),ssn_no varchar(50));
+
+Table created.
+
+SQL> create table airline_master(a_id varchar(50) primary key not null,
+a_name varchar(100),dop date);
+
+Table created.
+
+SQL> create table location_master(location_id int primary key not null,
+location_name varchar(100));
+
+Table created.
+
+SQL> create table flight_master(f_no varchar(50) primary key not null,
+a_id varchar(50), foreign key(a_id) references airline_master(a_id),
+tot_seats int,src int,foreign key (src) references location_master(location_id),
+dest int,foreign key (dest) references location_master(location_id),
+depart_time varchar(50),fare int,ava_seats int,depart_date date);
+
+Table created.
+
+SQL> create table booking_info(booking_id varchar(50) primary key not null,
+booking_date date,f_no varchar(50),foreign key (f_no) references flight_master(f_no),
+c_id varchar(50),foreign key (c_id) references customer_master(c_id),
+price int,seats_book int,depart_date date);
+
+Table created.

@@ -1,0 +1,27 @@
+insert into airline_master values('901','Air India','2019-01-19');
+
+insert into airline_master values('902','Indigo','2002-02-24');
+
+
+insert into airline_master values('903','Jet Airways','2003-03-12');
+
+
+insert into airline_master values('904','Go Air','2004-05-30');
+
+
+insert into airline_master values('905','Ethihad','2006-06-21');
+ insert into airline_master values('906','SpiceJet','2002-06-22');
+
+
+
+insert into flight_master values('6A501','901',200,101,102,'21:00',4000,200,'2019-01-20');
+insert into flight_master values('6A502','902',200,102,103,'22:00',5000,200,'2019-01-21');
+
+insert into flight_master values('6A503','903',200,103,104,'20:00',6000,200,'2019-01-22');
+
+
+insert into flight_master values('6A504','904',200,101,104,'17:00',7000,200,'2019-01-23');
+
+
+insert into flight_master values('6A505','905',200,101,103,'14:00',8000,200,'2019-01-24');
+insert into flight_master values('6A506','906',200,101,102,'14:00',8000,200,'2019-01-20');
