@@ -8,6 +8,15 @@
 <title>Success Mine page</title>
 </head>
 <body>
+
+<form action="ascend" method="POST">
+<input type="submit" value="Sort by Price:Ascending">
+</form>
+<form action="descend" method="POST">
+<input type="submit" value="Sort by Price:Descending">
+</form>
+
+
 <%  List<FlightMaster> fms = (ArrayList)session.getAttribute("fm"); %>
 <%Iterator <FlightMaster> iter = fms.iterator();
 while(iter.hasNext()){

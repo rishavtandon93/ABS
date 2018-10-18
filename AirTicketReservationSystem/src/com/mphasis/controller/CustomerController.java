@@ -19,12 +19,11 @@ import com.mphasis.model.dto.Customer;
 @Controller
 public class CustomerController {
 	
-	/*@RequestMapping(method=RequestMethod.POST,value="/")
-	public String getOne(){
-		return "login";
-	}*/
+	@Autowired
+	CustomerDao customerDao;
+
 	
-	@RequestMapping(method=RequestMethod.POST,value="/register")
+	/*@RequestMapping(method=RequestMethod.POST,value="/register")
 	public String registerCustomer(
 			HttpServletRequest request) {
 		
@@ -67,7 +66,66 @@ public class CustomerController {
 			System.out.println(customer.getCustName());
 			
 			model.addAttribute("customer",customer);
+		
+			return "searchPage";
 			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("login failure");
+			return null;
+		}
+	}*/
+Customer cust=null;
+	
+	@RequestMapping(method=RequestMethod.POST,value="/register")
+	public String registerCustomer(Customer customer,Model model) {
+		
+		
+		
+		try {
+			
+			  //Long id = new CustomerDao().save(customer);
+			Long id=customerDao.save(customer);
+			
+			
+			System.out.println(id);
+			 model.addAttribute("cus",customer);
+			 return "login";
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/loginn")
+	public String loginCustomer(Model model,Customer customer) {
+		this.cust=customer;
+		
+		try {
+			String email = cust.getEmail();
+			String password = cust.getPassword();
+			System.out.println(email);
+			System.out.println(password);
+			
+			
+			
+			
+			/*String email = request.getParameter("email");
+			String password = request.getParameter("password");*/
+			
+			//@SuppressWarnings("unused")
+			Customer customer1 = customerDao.getByEmailandPassword(email,password);
+			System.out.println(customer1.getCustName());
+			//Customer custo =(Customer) new CustomerDao().save(customer);
+			
+			//System.out.println(customer1.getCustName());
+			
+			model.addAttribute("cust",customer1);
+			model.addAttribute("custo", customer1);
+			cust=customer1;
 			return "searchPage";
 			
 		} catch (Exception e) {
@@ -77,6 +135,16 @@ public class CustomerController {
 			return null;
 		}
 	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/redirectToRegister")
+	public String pingpong()
+	{
+		return "register";
+	}
+	
+	
+	
+
 	
 	
 
