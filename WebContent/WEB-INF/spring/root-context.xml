@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- <bean id="mine" class="com.mphasis.myutils.MyUtility"> 
+	<property name="mydataSource" ref="mydataSource"/>
+	<property name="mySessionFactory" ref="sessionFactory"/>
+	</bean> -->
+	<bean id="customerController" class="com.mphasis.controller.CustomerController"></bean>
+	<bean id="dao" class="com.mphasis.dao.CustomerDao"></bean>
+	<bean id="mydataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	
+	
+	<!--  
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="system" />
+		<property name="password" value="system" />
+		-->
+		
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3308/mphasis"/>
+		
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+	 <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        
+        <property name="dataSource" ref="mydataSource" />
+        <property name="packagesToScan" value="com.mphasis.model" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+                
+               <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+ 
+		
+</beans>
