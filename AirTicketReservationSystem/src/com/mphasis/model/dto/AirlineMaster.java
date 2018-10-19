@@ -2,9 +2,6 @@ package com.mphasis.model.dto;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import com.mphasis.model.dto.FlightMaster;
-
 import java.util.Date;
 import java.util.List;
 

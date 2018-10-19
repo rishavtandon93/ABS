@@ -20,11 +20,6 @@ public class LocationMaster implements Serializable {
 	@Column(name="location_id")
 	private int locationId;
 
-	@Override
-	public String toString() {
-		return "LocationMaster [locationName=" + locationName + "]";
-	}
-
 	@Column(name="location_name")
 	private String locationName;
 

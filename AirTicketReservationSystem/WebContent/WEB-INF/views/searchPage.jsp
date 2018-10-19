@@ -41,7 +41,7 @@ Date:<input type="text" name="flyDate">
   <!-- <div class="container"> -->
 <div class="main">
 <h1>Search</h1>
-<form class="form" method="post" action="#" id="searchvalid">
+<form class="form" method="post" action="search" id="searchvalid">
 
 <table><tr>
 <td>
@@ -51,16 +51,19 @@ Date:<input type="text" name="flyDate">
 <table><tr>
 <td>Date:<input type="date" name="date" placeholder="yyyy-mm-dd"/></td>
 
-<div class="all"><td >Seats:<input type="number" name="seats" placeholder="no of seats"/></td></div>
+<!--  <div class="all"><td >Seats:<input type="number" name="seats" placeholder="no of seats"/></td></div>-->
 </tr></table>
 
 <div align="center">
 <table><tr>
 <td>
 <input type="submit" value="search"  id="register" /></td></tr></table>
-
+</form>
 </div>
-
+<form action="cancel" method="post">
+Enter Booking ID: <input type="number" name="bookid"/><br/>
+<input type="submit" value="Ticket Cancel"  id="register"/>
+</form>
 
 
 
@@ -75,7 +78,7 @@ Date:<input type="text" name="flyDate">
 </table>
 </div>
 
-</form>
+
 </div>
 </div>
 <ul><li style="margin-left:400px" ><a>

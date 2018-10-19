@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!--
 
-<!DOCTYPE >
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -52,7 +52,7 @@ SSN-No:<input type="text" name="ssnno" placeholder="Enter SNN Number"/><br/>
 </ul>
 <div class="container">
 <div class="main">
-<form class="form" method="post" action="#" id="registervalid">
+<form class="form" method="post" action="register" id="registervalid">
 <h2>Registration Form</h2>
 <label>Name :</label>
 <input type="text" name="custName" id="name"><br/><br/>

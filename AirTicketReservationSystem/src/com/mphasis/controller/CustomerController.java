@@ -132,15 +132,24 @@ Customer cust=null;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.out.println("login failure");
-			return null;
+			return "login";
 		}
 	}
 	
 	@RequestMapping(method=RequestMethod.POST,value="/redirectToRegister")
-	public String pingpong()
+	public String pingPong()
 	{
 		return "register";
 	}
+	
+	@RequestMapping(value = "/popoye", method = RequestMethod.GET)
+	
+	public String pingPongAgain() {
+		
+		return "searchPage";
+		}
+		
+
 	
 	
 	

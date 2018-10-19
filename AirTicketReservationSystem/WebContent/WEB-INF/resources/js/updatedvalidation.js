@@ -88,7 +88,7 @@ $("#searchvalid").validate({
 		seats: {
 
 		    required: true,
-		    range:[1,9]
+		    range:[1,200]
 	     	}
 		
 	}

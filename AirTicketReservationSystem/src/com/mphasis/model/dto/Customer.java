@@ -17,7 +17,7 @@ public class Customer {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	@Column(name="c_id")
-	private Long cId;
+	private int cId;
 	
 	@Column(name="customer_name")
 	private String custName;
@@ -31,12 +31,12 @@ public class Customer {
 	@Column(name="dob")
 	private Date dob;
 	
-	public Long getcId() {
+	public int getcId() {
 		return cId;
 	}
 
-	public void setcId(Long cId) {
-		this.cId = cId;
+	public void setcId(int custid) {
+		this.cId = custid;
 	}
 
 	public String getCustName() {

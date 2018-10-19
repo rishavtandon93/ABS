@@ -1,7 +1,6 @@
 package com.mphasis.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,17 +8,17 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.query.Query;
-import org.hibernate.Session;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mphasis.dao.LocationMasterDAOImple;
 import com.mphasis.model.dto.FlightMaster;
-import com.mphasis.model.dto.LocationMaster;
+
 
 import com.mphasis.myutils.MyUtility;
 
@@ -27,18 +26,14 @@ import com.mphasis.myutils.MyUtility;
 @SessionAttributes("fm")
 public class FirstController {
 	
+
 	
 	@RequestMapping(value="/search", method=RequestMethod.POST)
-	public String getLocation(Model model,HttpServletRequest request,LocationMasterDAOImple lm) {
-		String  flyDate= null;
-		String src = request.getParameter("location_name");
-		String dest = request.getParameter("location_name1");
-		
-			flyDate = request.getParameter("flyDate");
-			//SimpleDateFormat bookingDate= new SimpleDateFormat("YYYY-MM-DD");
-			//date = bookingDate.format(flyDate);
-			//System.out.println("Date"+date);
-		
+	public String getLocation(Model model,
+			@RequestParam(value="from") String src,
+			@RequestParam(value="to") String dest,
+			@RequestParam(value="date") String flyDate,
+			LocationMasterDAOImple lm) {
 		
 		System.out.println("src "+src);
 		System.out.println("dest "+dest);
@@ -66,12 +61,13 @@ public class FirstController {
 	
 		return "SuccessMine";
 		
+		
 	}
-
 	
+	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/ascend", method=RequestMethod.POST)
 	public String sortAscend(Model model, LocationMasterDAOImple lm1,HttpServletRequest request) {
-//		Session session = MyUtility.getMySessionFactory().openSession();
 		HttpSession session = request.getSession();
 		List<FlightMaster> li = (ArrayList<FlightMaster>)session.getAttribute("fm");;
 		Date  flyDate= li.get(0).getDepartDate();
@@ -93,6 +89,7 @@ public class FirstController {
 	public String sortDescend(Model model, LocationMasterDAOImple lm2,HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
+		@SuppressWarnings("unchecked")
 		List<FlightMaster> li = (ArrayList<FlightMaster>)session.getAttribute("fm");;
 		Date  flyDate= li.get(0).getDepartDate();
 		int src_Id = li.get(0).getLocationMaster1().getLocationId();
@@ -107,12 +104,6 @@ public class FirstController {
 		
 		return "SuccessMine";
 	}
-	
-	@RequestMapping(value = "/popoye", method = RequestMethod.GET)
-	public String pingpong() {
-		return "searchPage";
-	}
-
 
 
 }

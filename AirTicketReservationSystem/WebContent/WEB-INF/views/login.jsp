@@ -55,7 +55,7 @@ Password:<input type="password" name="password" placeholder="Enter Password"/><b
 </ul>
 <div class="container">
 <div class="main">
-<form class="form" method="get" action="loginn" id="loginvalid">
+<form class="form" method="post" action="loginn" id="loginvalid">
 <h2>Fly High</h2>
 <label>Email :</label>
 <input type="text" name="email" id="email"><br/><br/>

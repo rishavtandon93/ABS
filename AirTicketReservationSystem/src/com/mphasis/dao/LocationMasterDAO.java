@@ -1,6 +1,6 @@
 package com.mphasis.dao;
 
-import com.mphasis.model.dto.LocationMaster;
+
 
 import java.util.Date;
 import java.util.List;

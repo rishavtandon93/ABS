@@ -2,12 +2,8 @@ package com.mphasis.model.dto;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 
 /**
@@ -17,15 +13,7 @@ import java.util.ListIterator;
 @Entity
 @Table(name="flight_master")
 @NamedQuery(name="FlightMaster.findAll", query="SELECT f FROM FlightMaster f")
-public class FlightMaster implements Serializable{
-	@Override
-	public String toString() {
-		return "FlightMaster [fNo=" + fNo + ", avaSeats=" + avaSeats + ", departDate=" + departDate + ", departTime="
-				+ departTime + ", fare=" + fare + ", totSeats=" + totSeats + ", bookingInfos=" + bookingInfos
-				+ ", airlineMaster=" + airlineMaster + ", locationMaster1=" + locationMaster1 + ", locationMaster2="
-				+ locationMaster2 + "]";
-	}
-
+public class FlightMaster implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -43,7 +31,6 @@ public class FlightMaster implements Serializable{
 	@Column(name="depart_time")
 	private String departTime;
 
-	@Column(name="fare")
 	private int fare;
 
 	@Column(name="tot_seats")
@@ -70,7 +57,7 @@ public class FlightMaster implements Serializable{
 
 	public FlightMaster() {
 	}
-    
+
 	public String getFNo() {
 		return this.fNo;
 	}
@@ -164,6 +151,5 @@ public class FlightMaster implements Serializable{
 	public void setLocationMaster2(LocationMaster locationMaster2) {
 		this.locationMaster2 = locationMaster2;
 	}
-
 
 }
