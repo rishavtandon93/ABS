@@ -10,7 +10,7 @@ Application that alows the user to create an account, login, search for flights 
 or cancel his/ her ticket.
 
 
-# Instalaltion
+# Installaltion
 
 The repository can be used by anyone who wants to build a smilar system or learn from the the design. 
 
